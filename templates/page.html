@@ -3,151 +3,100 @@
 <meta name="title" content="{{ page.title }}">
 <style>
   .sidebar{
-    display: block;
+    display: none;
   }
-  @media (min-width: 52rem) {
+  @media (min-width: 67.5rem) {
     .sidebar{
       display: block;
     }
   }
 </style>
 {% endblock post_meta -%}
-{% block canonical_url %}
-<link rel="canonical" href="{{ config.base_url }}{{ page.path }}" />
-{% endblock canonical_url %}
 {% block title %}{{ page.title }} - {{ config.title}}{% endblock title %}
 {% block ogtitle %}{{ page.title }} - {{ config.title}}{% endblock ogtitle %}
-{% block ogdesc %}{% if page.description %} {{ page.description }} {% elif page.summary %} {{page.summary | spaceless | striptags}}  {% endif %}{% endblock ogdesc %}
-{% block description %}{% if page.description %} {{ page.description }} {% elif page.summary %} {{page.summary | spaceless | striptags}}  {% endif %}{% endblock description %}
-{% block ogurl %}{% if page.path %}{{ config.base_url }}{{ page.path }} {% endif %}{% endblock ogurl %}
+{% block ogdesc %}{% if page.description %} {{ page.description }} {% elif page.summary%} {{page.summary | spaceless | striptags}}  {% endif %}{% endblock ogdesc %}
+{% block description %}{% if page.description %} {{ page.description }} {% elif page.summary%} {{page.summary | spaceless | striptags}}  {% endif %}{% endblock description %}
+{% block ogurl %}{% if page.slug %}{{ config.base_url }}/{{ page.slug }}{% endif %}{% endblock ogurl %}
 {% block ogimg %}{% if page.extra.image %}{{ page.extra.image }}{% endif %}{% endblock ogimg %}
+
 {% block main %}
-<div class="element">
       {% block detail_meta -%}
       <header id="overview">
-        {% block breadcrumbs -%}
-        <div class="pt" style="justify-content: space-between;display: flex;">
-          <span>
+        <div class="pt">
           <span>&gt;&gt;</span>
-          <a class="category" href="{{ get_url(path="@/blog/_index.md",lang=lang) }}">Blog</a>
-          {% if page.taxonomies.categories %}
+          <a href="{{ get_url(path="@/_index.md",lang=lang) }}">{{trans(key="label_home",lang=lang)}}</a>
+          {% if page.taxonomies %}
           <span class="divider">/</span>
-          <a class="category" href="{{ get_taxonomy_url(kind="categories", name=page.taxonomies.categories[0],lang=lang) }}"> {{ page.taxonomies.categories[0] }}</a>
-          {% endif %}
-          {% if page.taxonomies.kinds %}
-          <span class="divider">/</span>
-          <a class="category" href="{{ get_taxonomy_url(kind="kinds", name=page.taxonomies.kinds[0],lang=lang) }}">{{ page.taxonomies.kinds[0] }}</a>    
-          {% endif %}
-          </span>
-          {% if page.extra.tw %}
-          {% set trimmed_path = page.path | trim_start_matches(pat="/en/") | trim_start_matches(pat="/") %}
-          <a class="category" href="{{ get_url(path=trimmed_path) }}">中文版</a>
-          {% elif page.extra.en %}
-          {% set path = '/en' ~ page.path %}
-          <a class="category" href="{{ get_url(path=path) }}">English version</a>
-          {% else %}
-          {% endif %}
-          <!-- 上面這段的內容意思是，如果 page.extra 裡面有 tw 這個自訂資料，那就要在畫面中顯示「中文版」的連結，此時會連到去除 /en 的網址。反之，若文章裡面有 en 這個自訂資料，則會顯示英文版的連結。若兩者都無，就不會顯示任何東西。 -->
+          <a class="category" href="{{ get_taxonomy_url(kind="categories", name=page.taxonomies.categories[0],lang=lang) }}">{{
+            page.taxonomies.categories[0] }}</a>
           
-        </div>
-        {% endblock breadcrumbs %}
-        <div>
-          <h1>{% block detail_meta_slot %}{% endblock detail_meta_slot %}{{ page.title }}</h1>
-          <div class="muted" style="justify-content: space-between;display: flex;">
-            <time pubdate>{{ page.date | date(format="%Y-%m-%d") }}</time> 
-            <span>{{ config.extra.author }}</span>
+          {% if page.taxonomies.tags -%}
+          <span class="divider">/</span>
+          {% for tag in page.taxonomies.tags %}
+          <a href="{{ get_taxonomy_url(kind="tags", name=tag,lang=lang) }}">{{ tag }}</a>{% if page.taxonomies.tags | length > 1 %}{% if
+          loop.index != page.taxonomies.tags | length %},{% endif %}{% endif %}
+          {% endfor %}
+          {% endif %}
+          {% endif %}
           </div>
+        
+        <div>
+          <h1 style="font-size:2rem;">{{ page.title }}</h1>
+          <div class="muted">
+            <div>
+              {% if page.date %}{{ trans(key="label_created",lang=lang)}} {{ page.date }}{% endif %}{% if page.updated %} | {{trans(key="label_updated",lang=lang)}} {{ page.updated }} {% endif %}</div>
         </div>
+  
+        </div>
+        {% block detail_meta_slot %}
+        {% endblock detail_meta_slot %}
       </header>
       {% endblock detail_meta -%}
-      <section data-pagefind-body>
+      <section>
+      
         <section class="main">
+          {% if page.toc %}
+          <div class="main-toc pt">
+            <details>
+              <summary>{{trans(key="label_table_contents",lang=lang)}}</summary>
+              {{ macro::page_toc(toc=page.toc) }}
+            </details>
+
+          </div>
+          {% endif %}
           <section id="start"></section>
           <article>
             {{ page.content | safe }}
-            {% if page.taxonomies.tags %}
-            <p>
-              {% for tag in page.taxonomies.tags %}
-              <a class="muted text-sm no-underline" href="{{ get_taxonomy_url(kind="tags", name=tag,lang=lang) }}">#{{ tag }}</a>{% if page.taxonomies.tags | length > 1 %}
-              {% if loop.index != page.taxonomies.tags | length %}&nbsp;{% endif %}{% endif %}
-            {% endfor %}
-            </p>
-           
-            {% endif %}
-             <br>
-             {% if page.updated %}
-             <div class="muted" style="justify-content: right;display: flex;">
-             <span>{{trans(key="label_updated",lang=lang)}}&nbsp;</span><time pubdate>{{ page.updated | date(format="%Y-%m-%d") }}</time>
-             <br>
-             {% endif %}
           </article>
-        </section>
-      </section>
-          <section id="backlinks">
-            {{ macro::backlink(pages=page.backlinks) }}
-          </section>
-          {% block outro %}
+
           {% if config.extra.email %}
-          <hr>
-          <br>
-          <section id="contact">
           <div id="email-comment" class="muted text-sm">
+            <hr class="w-full">
+            {% if config.default_language != lang %}
             <p>
-              If you have anything you want to discuss, feel free to contact me at pj@pinchlime.com 
+              If you have anything want to discuss, feel free to contact me via <a href="mailto:mimir@hey.com?subject={{ "Reply: " ~ page.title | urlencode }}">mail:</a><code>mimir@hey.com</code>
             </p>
+            {% else %}
+            <p>
+              如果你對於本文有任何想討論或分享的，歡迎<a href="mailto:mimir@hey.com?subject={{"回覆："~page.title | urlencode }}">來信</a>到：<code>mimir@hey.com</code> 找我聊聊！
+            </p>
+            {% endif %}
+            
+
           </div>
-          </section>
           {% endif %}
-          {% endblock outro %}
-          {% block comments %}
-          {% endblock comments %}
-</div>
+
+        </section>
+        
+       
+      </section>
 {% endblock main%}
 
 {% block sidebar %}
-<aside class="sidebar">
+<aside class="sidebar px {% if page.toc %}{% else %}no-toc{% endif %}">
 {% if page.toc %}
-<div class="sidebar-element">
 <h2>{{trans(key="label_table_contents",lang=lang)}}</h2>
 {{ macro::page_toc(toc=page.toc) }}
-</div>
-{% endif %}
-{% if lang == 'zh-TW' -%}
-{% block newsletter_sidebar_slot %}{% endblock newsletter_sidebar_slot %}
-{% block section_sidebar_slot %}{% endblock section_sidebar_slot %}
-{% if page.taxonomies.categories %}
-<body>
-  <div class="sidebar-element">
-  <h2>{{trans(key="label_related_posts",lang=lang) | markdown(inline=true) | safe}}</h2>
-  <ul>
-    <li class="no-underline">
-    <a class="category" href="{{ get_taxonomy_url(kind="categories", name=page.taxonomies.categories[0]) }}">➤&emsp;其他 {{
-      page.taxonomies.categories[0] }} 分類</a><br>      
-    </li>
-    {% if page.taxonomies.tags -%}
-    {% for tag in page.taxonomies.tags %}
-    <li class="no-underline">
-    <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">➤&emsp;其他 {{ tag }} 標籤</a>{% if page.taxonomies.tags | length > 1 %}{% if
-    loop.index != page.taxonomies.tags | length %}<br>{% endif %}{% endif %}
-    </li>
-    {% endfor %}
-    {% endif %}
-  </ul>
-  </div>
-  </body>
-  <div class="sidebar-element">
-  <h2>{{trans(key="label_new_posts_list_title",lang=lang) | markdown(inline=true) | safe}}</h2>
-  <ul>
-    {% set all_blog_pages = get_section(path="blog/_index.md") -%}
-    {% for page in all_blog_pages.pages | slice(start=0,end=10)  %} 
-    <li class="no-underline">
-      {{ macro::post_side(page=page) }}
-    </li>
-    {% endfor %} 
-  </ul>
-  </div>
-{% endif %}
-{% elif lang == 'en' %}
 {% endif %}
 </aside>
 

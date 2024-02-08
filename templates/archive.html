@@ -1,31 +1,34 @@
 {% extends "base.html" %} 
-{% block title %}{{ config.title }} - {{ section.title }}{% endblock title %}
-{% block ogtitle %}{{ config.title }} - {{ section.title }}{% endblock ogtitle %}
-{% block description %}{{ section.title }}{% endblock description %}
-{% block ogdesc %}{{ section.title }}{% endblock ogdesc %}
-{% block ogurl %}{{ config.base_url }}{{ section.path }}{% endblock ogurl %}
+{% set all_section_pages =
+get_section(path="_index.md") %}
+{% block title %}{{ config.title}} - Archive{%
+endblock title %} 
+
+{% block ogtitle %}{{ config.title}} - Archive {% endblock
+ogtitle %} 
+
+{% block ogdesc %}Archive Articles{% endblock ogdesc %} 
+
+{% block
+ogurl %}{% if page.slug %}{{ config.base_url }}/{{ page.slug }}{% endif %}
+
+{% endblock ogurl %} 
+
+{% block ogimg %}{% if page.extra.image %}{{ page.extra.image
+}}{% endif %}{% endblock ogimg %} 
+
 {% block main %} 
-{% set_global blog_section = get_section(path="blog/_index"~file_lang_path~".md") -%}
-{% set_global section_content = blog_section.content %}
-<div class="element-container">
-  {% if lang == 'zh-TW' %}
-  <div class="element">
-  <setion>
-    {{ section_content | safe}}
-  </setion>
-</div> 
-{% elif lang == 'en' %}
-{% endif %}
-<div class="element">
-<h1>Blog</h1>
-<br>
-{% set all_blog_pages = get_section(path="blog/_index"~file_lang_path~".md") %}
-<br>
-<ul class="list-none">
-  {% for post in all_blog_pages.pages | sort(attribute="updated") | reverse %}
-  <li>{{ macro::post_min(page=post) }}</li>
+<div class="main-box-block">
+
+{% for year, posts in
+all_section_pages.pages | group_by(attribute="year") %}
+<h2>{{ year }}</h2>
+
+<ul>
+  {% for post in posts %}
+  <li>{{ macro::post_min(page=post) }}</a></li>
   {% endfor %}
 </ul>
+{% endfor %} 
 </div>
 {% endblock main %}
-<summary style="text-decoration:line-through "></summary>

@@ -1,14 +1,14 @@
 ---
-sort_by: date
-sort_direction: decending
-updated: 2023-05-06
+sort_by: "date"
+sort_direction: "decending"
+updated: 2022-04-04
 ---
 
-## 其他站內頁面
+## 常用連結
 
-- [About](/about/)
-- [Now](/now)
-- [Changelog](/changelog/)
-- [Glossary](/glossary)
-- [Search](/search)
-- [Subscribe](/subscribe)
+- [關於我](/about/)
+- [所有文章](/archive/)
+- [Pin 起來電子報](https://pinchlime.substack.com/)
+- [Pin 起來的工具箱](https://pinchlime.com/toolbox/)
+- [不再 Pin 起來的工具們](https://pinchlime.com/unpinned-toolbox/)
+- [訂閱 RSS](/atom.xml)
