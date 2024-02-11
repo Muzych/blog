@@ -1,8 +1,8 @@
-base_url = "https://pinchlime.com"
+base_url = "https://blog-1dk.pages.dev/"
 build_search_index = false
 compile_sass = false
 default_language = "zh-TW"
-description = "介紹生產力工具，以及分享使用心得"
+description = "外来者你好，欢迎来到我的数字花园。"
 generate_feed = true
 generate_rss = true
 taxonomies = [
@@ -39,17 +39,17 @@ include_path = true
 include_content = false
 
 [extra]
-author = "PJ Wu 吳秉儒"
-email = "pj@pinchlime.com"
+author = "Muzych 木子言成"
+email = "haxk1024@gmail.com"
 theme_color = "#003c6d"
 
 ### THIRD PARTY
 google_analytics = ""
 
 ### SOCIAL MEDIA
-image = "https://pinchlime.com/logo.png"
-twitter_user = "@WuPingJu"
-edit_url_prefix = "https://github.com/wupingju/pinchlime/edit/master/content/"
+image = "https://pinchlime.com/logo.png" # Todo: 这里要换成自己的Logo
+twitter_user = "@1Haxk4541"
+edit_url_prefix = "https://github.com/wupingju/pinchlime/edit/master/content/" # Todo：这里考虑一下要不要将仓库转为public，然后再po上自己的edit_url_prefix吧
 
 ### I18N WORDS
 
@@ -79,13 +79,13 @@ label_categories = "所有分類"
 label_kinds = "所有類別"
 label_category = "Category: "
 label_created = "Posted"
-label_home = "首頁"
+label_home = "首页"
 label_related_posts = "看更多相關文章"
 label_new_posts_list_title = "看其他最新 Blog 文章"
 label_new_snapshots_list_title = "最新 Snapshots"
 label_new_newsletters_list_title = "最新電子報"
 label_read_more = "繼續閱讀全文 ➞"
-label_rss = "訂閱 RSS"
+label_rss = "订阅 RSS"
 label_table_contents = "目錄"
 label_sorting_articles ="看更多"
 label_tag = "Tags: "

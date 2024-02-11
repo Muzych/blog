@@ -16,7 +16,7 @@ Pin 起來 ／ Pinchlime.com 是由我自己一個人獨立經營的部落格，
 
 而 Pinchlime 則是自己自創的單字，它唸起來的感覺有點像中文的 Pin 起來，而字義上也有點類似於 "Punchline" ，不過就是把 Punch 改成了 Pinch ，把 Line 改成了 Lime。
 
-在 [Pin 起來的 新Logo](@/blog/the-new-logo-of-pinchlime.md) 這篇裡面也有簡單提到，目前的 Logo 帶有一點 "pin" + "lime" 的意象在裡面。
+
 
 ## 關於 Pin 起來的架設
 
@@ -46,7 +46,7 @@ Pin 起來 ／ Pinchlime.com 是由我自己一個人獨立經營的部落格，
 
 - 短篇幅的想法、論述、以及各種新發現新嘗試，會放在網站的 [Snapshots](/snapshots) 區塊。
 
-- 我對特定感興趣主題的探索與想法，會放在我的 [Pin 起來電子報](/newsletters) 上面。
+<!-- - 我對特定感興趣主題的探索與想法，會放在我的 [Pin 起來電子報](/newsletters) 上面。 -->
 
 - 比較長篇幅的生產力工具分享、生產力方法論的介紹與討論等等，則會繼續放在 Pin 起來這個網站的 [Blog](/blog) 區塊。
 

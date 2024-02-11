@@ -53,7 +53,7 @@ Hi ，若你有興趣持續收到這個網站的內容更新，可以透過 Emai
 例如，你可以透過下列連結，只訂閱特定主類別的內容：
 
 - [Blog](/blog/atom.xml)
-- [Newsletters](/newsletters/atom.xml)
+<!-- - [Newsletters](/newsletters/atom.xml) -->
 
 你也可以針對 [tags](/tags) 裡面的個別 tag 項目訂閱，你就點開這個標籤的連結，並且在後面加上 `/atom.xml` ，就可以單獨訂閱了。
 
