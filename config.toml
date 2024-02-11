@@ -17,4 +17,5 @@ highlight_code = false
 
 author = "木子言成"
 email = "haxk1024@gmail.com"
-
+title = "Zola文章测试"
+description = "The personal website of me Muzych - Software Developer living in China."
