@@ -1,15 +1,50 @@
+---
+updated: 2023-11-25
+sort_by: date
+sort_direction: decending
+transparent: true
+generate_feed: true
+title: Pin 起來
+---
 
-+++
-title = "Bennett's Rust Journal"
-+++
+# Pin 起來
 
-## Hello, Bennett here.
+歡迎來到 **Pin 起來** ，我是 [PJ Wu 吳秉儒](https://twitter.com/WuPingJu)，這是我的個人網站，分享我好奇與感興趣的事、我的各種想法、以及我體驗不同事物後的心得。
 
-I’m a Software Developer living in Brisbane, working on making cool things
-in the browser at [Clipchamp.](https://clipchamp.com)
+---
 
-I’m still a full-time student, but you’ll barely find me at QUT. Rather,
-you’ll probably find me breaking builds, ricing Archlinux or coming up
-with ideas for apps I’m never gonna finish.
+## 主要內容區
 
-If you'd like to get in contact, you can send me an email at: `me at bennetthardwick.com`
+### [Blog](/blog)
+這裡是網站中比較完整的內容，包含各類生產力工具的介紹與討論、工作流的分享，以及關於這個網站的紀錄等。
+
+### [Newsletters](/newsletters)
+這裡放的是「Pin 起來電子報」，目前電子報的定位是我對不同感興趣主題的探索想法與心得，會不定期寄送給有訂閱的人。
+
+### [Stream](/stream/2024)
+這裡放的是我各種「不成熟的想法」，你可以把它當成私人版，專屬於我自己的 Twitter 。
+
+
+---
+
+## 獨立頁面
+
+除了上述四個主要內容區之外，這個站上還有一些獨立的頁面與功能，也歡迎你瀏覽看看：
+
+### [About](/about/)
+這裡有關於我、還有這個站的相關資訊，若你想要聯絡我，這邊也有我的聯絡方式。
+
+### [Now](/now)
+這是一個我很喜歡的獨立頁面，裡面放的是「當下」我最關注的事，以及我正在進行的事。這些事聚集在一起，指向的是我想達到的未來。
+
+### [Manifesto](/manifesto)
+在逐步建構這個網站的過程中，我發現我有一些特定的「堅持」，因此我決定把我的一些價值主張寫下來。
+
+### [Changelog](/changelog/)
+這裡放的是關於這個站的 Changelog ，只要每次網站的架構或程式碼有什麼變化，我就會記錄一下！
+
+### [Subscribe](/subscribe)
+若你有興趣持續收到這個網站的內容更新，可以透過 Email 或 RSS 訂閱本站內容。這個頁面有詳細的介紹。
+
+### [English Version](/en)
+有興趣的話，你也可以看看本站的英文版。

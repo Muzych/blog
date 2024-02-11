@@ -1,25 +1,9 @@
-{% extends "base.html" %}
-
-{% block styles%}
-  <link rel="stylesheet" href="{{ get_url(path="index.css") | safe }}">
-{% endblock styles %}
-
-{% block posthead %}
-{% endblock posthead %}
-
-
-{% block content %}
-  <div class="profile">
-    <div class="profile-container">
-      
-    </div>
-  </div>
-  <div class="content">
+{% extends "base.html" -%} 
+{% block main -%}
+<div class="element-container">
+  <div class="element">
+    <section>
     {{ section.content | safe }}
-    <nav class="lower">
-      <a href="/projects/">Projects</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </div>
-{% endblock content %}
+    </section>
+</div>
+{% endblock main -%}  
