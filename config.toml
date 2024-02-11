@@ -1,4 +1,4 @@
-base_url = "https://blog-1dk.pages.dev/"
+base_url = "https://muziyan.icu"
 build_search_index = false
 compile_sass = false
 default_language = "zh-TW"
@@ -10,7 +10,7 @@ taxonomies = [
   {name = "categories", feed = true},
   {name = "kinds", feed = true},
 ]
-title = "Pin 起來！"
+title = "MuZiYan病房"
 
 [markdown]
 # When set to "true", all code blocks are highlighted.
