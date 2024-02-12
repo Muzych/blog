@@ -7,9 +7,11 @@ generate_feed: true
 title: 你好
 ---
 
-# MuZiYan病房
+# Muzych的博客
 
-欢迎来到 **MuZiYan病房** ，我是[Muzych 木子言成](https://twitter.com/1Haxk4541)，这是我的数字病房，我会在这里写点东西，分享我感兴趣的、我讨厌的、我热爱的、我憎恨的一切。
+欢迎来到 **Muzych的博客** ，我是[Muzych](https://twitter.com/1Haxk4541)，我会在这里分享我的日常。
+<!-- 这里可以做一个统计功能 -->
+
 
 ---
 

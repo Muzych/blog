@@ -459,7 +459,7 @@ a.muted,
   position: fixed;
   width: 100%;
   color: #FFFFFF;
-  background-color: #003C6D;
+  background-color: #000000;
   z-index: 1020;
 }
 article {

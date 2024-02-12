@@ -10,7 +10,7 @@ taxonomies = [
   {name = "categories", feed = true},
   {name = "kinds", feed = true},
 ]
-title = "MuZiYan病房"
+title = "Muzych的博客"
 
 [markdown]
 # When set to "true", all code blocks are highlighted.
@@ -39,7 +39,7 @@ include_path = true
 include_content = false
 
 [extra]
-author = "Muzych 木子言成"
+author = "Muzych"
 email = "haxk1024@gmail.com"
 theme_color = "#003c6d"
 
