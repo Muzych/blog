@@ -11,6 +11,11 @@ template: stream.html
 
 ### Feburary
 
+{% fleet(num="2",time="Feb 18 16:21",year="2024") %}
+生活慢慢归于平静...
+深刻地感受到，无论做什么事，自信心很重要。
+{% end %}
+
 {% fleet(num="1",time="Feb 12 13:41",year="2024") %}
 站在巨人的肩膀上搭下了这个站点，接下来要慢慢替换成我自己的样子。
 {% end %}
