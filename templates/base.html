@@ -1,29 +1,12 @@
-{% import "macros.html" as macro -%}
-{% set all_section_pages = get_section(path="_index.md") -%}
-{%- set_global file_lang_path = "" -%}
-{%- if config.default_language != lang -%}
-  {%- set_global file_lang_path = "." ~ lang -%}
-{%- endif -%}
-
-
 <!DOCTYPE html>
-<html
-  lang="{{ lang }}"
-  itemscope
-  itemtype="http://schema.org/Blog"
->
-  <head>
+<html lang="en">
+
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-    <link rel="stylesheet" href="{{ get_url(path="site/styles/site.css",
-    trailing_slash=false,cachebust=true) | safe }}" async>
+    <meta charset="utf-8">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-
-    {% if config.generate_rss %} <link rel="alternate"
-    type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
-    {% endif %}
-    {% block canonical_url %}{% endblock canonical_url %}
     <meta
       name="description"
       itemprop="about"
@@ -37,16 +20,6 @@
     <meta name="author" itemprop="author" content="{{ config.extra.author }}" />
     <meta itemprop="headline" content="{{ config.title }}" />
     <meta itemprop="copyrightYear" content="{{ now() | date(format="%Y") }}" />
-    <link rel="icon" href="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/favicon-32x32_to9pAp.png"
-    type="image/x-icon"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/favicon-32x32_to9pAp.png"> 
-    <link rel="icon" type="image/png" sizes="16x16" href="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/favicon-32x32_to9pAp.png"> 
-    <link rel="manifest" href="{{ get_url(path="site/images/manifest.json") }}">
-    <link rel="me" href="https://pkm.social/@pj"> 
-    <link rel="preload" as="font">
-    <meta name="msapplication-TileColor" content="{{ config.extra.theme_color }}" />
-    <meta name="msapplication-TileImage" content="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/favicon-32x32_to9pAp.png">
-    <meta name="theme-color" content="{{ config.extra.theme_color }}" />
 
     <meta
       property="og:title"
@@ -60,143 +33,29 @@
       property="og:url"
       content="{% block ogurl %}{{ config.base_url }}{% endblock ogurl%}"
     />
-    <meta property="og:site_name" content="{{ config.title }}" />
-    <meta property="og:type" content="website" />
-    {% if page.extra.image %}
-    <meta property="og:image" content="{% block ogimg %}{{ page.extra.image }}{% endblock ogimg %}" />
-    {% else %}
-    <meta property="og:image" content="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/og-02-600-600_aVEEhG.png" />
-    <meta property="og:image:width" content="600"/>
-    <meta property="og:image:height" content="600"/>
-    {% endif %}
-    <meta name="twitter:card" content="summary_large_image" />
-    {% if config.extra.twitter_user %}
-    <meta name="twitter:site" content="{{ config.extra.twitter_user }}" />
-    <meta name="twitter:creator" content="{{ config.extra.twitter_user }}" />
-    {% endif %}
-    {% if page.extra.image %}
-    <meta name="twitter:image" content="{% block ogimg %}{{ page.extra.image }}{% endblock ogimg %}" />
-    <meta
-      name="twitter:image:alt"
-      content="{% block ogaltimg %}{{ config.title }}{% endblock ogaltimg %}" />
-    {% else %}
-    <meta name="twitter:image" content="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/og-02-1200-630_1hIeSM.png" />
-    <meta
-      name="twitter:image:alt"
-      content="{% block ogaltimg %}{{ config.title }}{% endblock ogaltimg %}" />
+    {% if config.generate_feed %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
     {% endif %}
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
     />
-    {% block post_meta %}{% endblock post_meta %}
-  </head>
 
-  <body>
-    <section id="top">
-      {% block nav_bar -%}
-      {% if lang == 'zh-TW' -%}
-      <nav class="navbar-top">
-        <div class="nav-container">
-        <div>
-          <a class="navbar-a" style="color: #ffffff" href="{{ get_url(path="@/_index.md",lang=lang) }}" >
-            <!-- <img src="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/pinchlime-logo-02-no-sub-96x96_Bgz9Ey.webp" width = "48" height = "48" alt="Logo of Muzych" > -->
-            <span class="navbar-name">Muzych的博客</span>
-          </a> 
-        </div>
-        <div class="mobile-menu-icon">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="navbar-name">
-          <a class="menu-button" href="{{ get_url(path="@/blog/_index.md",lang=lang) }}">Blog</a>
-          <a class="menu-button" href="{{ get_url(path="@/newsletters/_index.md",lang=lang) }}">Newsletters</a>
-          <a class="menu-button" href="/stream/2024">Stream</a>
-          <a class="menu-button-search" href="{{ get_url(path="@/pages/search.md",lang=lang) }}">
-            <img src="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/search-icon_IsXZSS.svg" alt="search-icon" >
-          </a>
-        </div>
-        <div class="mobile-menu">
-          <a class="menu-button" href="/blog/">Blog</a>
-          <a class="menu-button" href="/newsletters/">Newsletters</a>
-          <a class="menu-button" href="/stream/2024">Stream</a>
-          <hr style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-          <a class="menu-button" href="/about/">About</a>
-          <a class="menu-button" href="/now/">Now</a>
-          <a class="menu-button" href="/manifesto/">Manifesto</a>
-          <a class="menu-button" href="/changelog/">Changelog</a>
-          <a class="menu-button" href="/search/">Search</a>
-          <a class="menu-button" href="/subscribe/">Subscribe</a>
-        </div>
-        </div>
-      </nav>
-      {% elif lang == 'en' %}
-      <nav class="navbar-top">
-        <div class="nav-container">
-        <div>
-          <a class="navbar-a" style="color: #ffffff" href="{{ get_url(path="@/_index.md",lang=lang) }}" >
-            <img src="https://pinchlime-screenshots.s3.ap-northeast-1.amazonaws.com/pinchlime-logo-02-no-sub-96x96_Bgz9Ey.webp" width = "48" height = "48" alt="Logo of Pinchlime" >
-            <span class="navbar-name">Pinchlime</span>
-          </a> 
-        </div>
-        <div class="mobile-menu-icon">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="navbar-name">
-          <a class="menu-button" href="{{ get_url(path="@/blog/_index.md",lang=lang) }}">Blog</a>
-        </div>
-        <div class="mobile-menu">
-          <a class="menu-button" href="{{ get_url(path="@/blog/_index.md",lang=lang) }}">Blog</a>
-          <hr style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-          <a class="menu-button" href="/en/about/">About</a>
-        </div>
-        </div>
-      </nav>
-      {% endif %}
-      {% endblock nav_bar %}
-    </section>
-    <section id="root" >
-      {% block body_zone -%}
-      <main class="body-zone flex justify-between flex-1">
-          <section id="main" class="main flex-1 py">
-            <div>
-              {% block main %}
-              {% endblock main %}
-            </div>
-          </section>
+</head>
 
-      {% block sidebar %}
-      {% endblock sidebar %}
-      </main>
-      {% endblock body_zone -%}
-   
+<body>
+    <section class="section">
+        {% block navbar %}
+        
+        {% endblock navbar -%}
     </section>
-    <section id="bottom"></section>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.querySelector(".hamburger");
-        const mobileMenu = document.querySelector(".mobile-menu");
-    
-        hamburger.addEventListener("click", function() {
-          hamburger.classList.toggle("active");
-          mobileMenu.classList.toggle("show");
-        });
+        Fancybox.bind("[data-fancybox]", {
+        // Your custom options
       });
-    </script>
-    <script>
-      Fancybox.bind("[data-fancybox]", {
-      // Your custom options
-    });
-    </script>
-    {% block custom_script %}
-    {% endblock custom_script -%}
-  </body>
+      </script>
+      {% block custom_script %}
+      {% endblock custom_script -%}
+</body>
 </html>
