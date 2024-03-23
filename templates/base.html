@@ -47,8 +47,11 @@
 <body>
     <section class="section">
         {% block navbar %}
-        
         {% endblock navbar -%}
+        {% block content %}
+        {% endblock content -%}
+        {% block footer %}
+        {% endblock footer -%}
     </section>
     <script>
         Fancybox.bind("[data-fancybox]", {

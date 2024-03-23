@@ -1,6 +1,6 @@
 title = "Muzych的部落格"
 description = "这是我的个人部落格，会记录一切我感兴趣的东西。"
-base_url = "https://muziyancheng.com"
+base_url = "https://muziyan.icu"
 compile_sass = true
 generate_feed = true
 
