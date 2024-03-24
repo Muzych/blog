@@ -1,0 +1,22 @@
+{% macro unocss_script() %}
+<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/preset-mini.global.js"></script>
+  <script>
+    window.__unocss = {
+      rules: [
+        // custom rules...
+        [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],
+        [/^p-([\.\d]+)$/, ([_, num]) => ({ padding: `${num}px` })],
+        [/^bg-light-color$/, () => ({ "background-color": '#f2f2f2' })],
+        [/^bg-dark-color$/, () => ({ "background-color": '#000000' })],
+      ],
+      presets: [
+        // custom presets...
+        () => window.__unocss_runtime.presets.presetMini({
+          dark: 'media'
+        }),
+      ],
+      // ...
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/core.global.js"></script>
+{% endmacro %}

@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  This is my blog made with Zola.
-</h1>
-<div class="m-90">
-  你好
-</div>
+
+<body>
+  <h1 class="title">
+    This is my blog made with Zola.
+  </h1>
+
+  <div class="m-90">
+    你好
+  </div>
+  <a href="https://muzych.oss-cn-shenzhen.aliyuncs.com/img/20240324111221.png" data-fancybox data-caption="limitless-opportunities">
+    <img src="https://muzych.oss-cn-shenzhen.aliyuncs.com/img/20240324111221.png" loading="lazy" alt="limitless-opportunities" align="center" />
+  </a>
+</body>
 <p>Click <a href="{{ get_url(path='@/blog/_index.md') }}">here</a> to see my posts.</p>
 {% endblock content %}

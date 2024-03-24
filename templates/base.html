@@ -1,3 +1,5 @@
+{% import "macros/fancybox_macro.html" as fancybox %}
+{% import "macros/unocss_macro.html" as unocss %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +28,7 @@
 
 </head>
 
-<body>
+<body class="dark:bg-light-color">
   <section class="section">
     {% block navbar %}
     {% endblock navbar -%}
@@ -35,26 +37,10 @@
     {% block footer %}
     {% endblock footer -%}
   </section>
-  <script>
-    Fancybox.bind("[data-fancybox]", {
-      // Your custom options
-    });
-  </script>
-  <script>
-    window.__unocss = {
-      rules: [
-        // custom rules...
-        [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],
-        [/^p-([\.\d]+)$/, ([_, num]) => ({ padding: `${num}px` })],
-      ],
-      presets: [
-        // custom presets...
-      ],
-      // ...
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+  {{ fancybox::fancybox_script() }}
+  {{ unocss::unocss_script() }}
   {% block custom_script %}
   {% endblock custom_script -%}
 </body>
+
 </html>
