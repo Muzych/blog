@@ -1,5 +1,7 @@
 {% import "macros/fancybox_macro.html" as fancybox %}
-{% import "macros/unocss_macro.html" as unocss %}
+{% import "macros/tailwindcss_macro.html" as tailwind %}
+<!-- Partials引入 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,22 +25,26 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" atom.xml", trailing_slash=false)
     }}">
   {% endif %}
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css">
 </head>
 
 <body class="dark:bg-light-color">
   <section class="section">
     {% block navbar %}
+    {% include "partials/nav.html" %}
     {% endblock navbar -%}
     {% block content %}
+    
     {% endblock content -%}
     {% block footer %}
     {% endblock footer -%}
   </section>
   {{ fancybox::fancybox_script() }}
-  {{ unocss::unocss_script() }}
+  {{ tailwind::tailwindcss_script() }}
   {% block custom_script %}
   {% endblock custom_script -%}
 </body>
