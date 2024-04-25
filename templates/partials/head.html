@@ -1,0 +1,26 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" itemprop="about"
+      content="{% block description -%}{{ config.description }}{% endblock description -%}" />
+    <meta name="keywords" itemprop="keywords" content="keywords" />
+    <meta name="author" itemprop="author" content="{{ config.extra.author }}" />
+    <meta itemprop="headline" content="{{ config.title }}" />
+    <meta itemprop="copyrightYear" content="{{ now() | date(format=" %Y") }}" />
+  
+    <meta property="og:title" content="{% block ogtitle %}{{ config.title }}{% endblock ogtitle %}" />
+    <meta property="og:description" content="{% block ogdesc %}{{ config.description }}{% endblock ogdesc %}" />
+    <meta property="og:url" content="{% block ogurl %}{{ config.base_url }}{% endblock ogurl%}" />
+    <link rel="stylesheet" href="{{ get_url(path='main.css') | safe }}">
+    {% if config.generate_feed %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false)
+  }}">
+  {% endif %}
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script src="https://kit.fontawesome.com/5dd16f1150.js" crossorigin="anonymous"></script>
+  <script async src="https://umami.muziyan.icu/script.js" data-website-id="6d4c8738-970a-4b35-8cbd-953e2b6257f3"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  </head>
