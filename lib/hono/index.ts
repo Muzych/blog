@@ -1,60 +1,21 @@
 
-import { HTTPException } from 'hono/http-exception';
+import { Hono } from "hono";
+/* type your Cloudflare bindings here */
+type Bindings = {};
 
-import { Hono} from 'hono';
+/* type your Hono variables (used with c.get/c.set) here */
+type Variables = {};
 
+type ContextEnv = { Bindings: Bindings; Variables: Variables };
 
-const app = new Hono().basePath('/api');
+const app = new Hono<ContextEnv>()
 
+const api = new Hono()
 
-app.get('/hello', (c) => c.text('Hello Cloudflare Workers!'))
-/**
- * Not found handler
- */
-app.get('*', (c) => {
-  return c.json(
-    {
-      success: false,
-      errors: {
-        issues: [
-          {
-            code: 'not_found',
-            message: 'The requested resource was not found.',
-          },
-        ],
-        name: 'NotFound',
-      },
-    },
-    404,
-  );
-});
+api.get("/", (c) => {
+  return c.text("Hello, world!")
+})
 
-/**
- * Error handler
- */
-app.onError((err, c) => {
-  if (err instanceof HTTPException) {
-    // Get the custom response
-    return err.getResponse();
-  }
-  console.error(err);
-  return c.json(
-    {
-      success: false,
-      errors: {
-        issues: [
-          {
-            code: 'internal_server_error',
-            message: 'An internal server error occurred.',
-          },
-        ],
-        name: 'InternalServerError',
-      },
-    },
-    500,
-  );
-});
-
-export type App = typeof app;
+app.route("/api", api)
 
 export default app;
