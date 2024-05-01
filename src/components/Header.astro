@@ -1,58 +1,35 @@
 ---
 import { getImage } from "astro:assets";
-const { is404Page = false } = Astro.props; // Get the prop from Astro.props
+import ThemeIcon from "./ThemeIcon.astro";
 
 const favicon_avif = await getImage({
   src: "https://pics.mzych.ink/picstomb%2F2024%2F05%2Fe596365cb7d21826501ea0e8246214e9.jpg",
   alt: "favicon",
   // inferSize: true,
-  width: "500",
-  height: "500",
+  width: "400",
+  height: "400",
   decoding: "async",
-  format: "jpg"
+  format: "avif"
 });
 ---
 
 <header class="mb-[30px]">
-  <nav
-    class="flex items-center justify-between w-full h-full relative align-center"
-  >
-    {
-      !is404Page && (
+    <nav class="flex items-center justify-between w-full h-full relative align-center">
         <div>
-          <a href="/">
-            <img
-              class="favicon absolute left-0  -mt-[15px]"
-              src={favicon_avif.src}
-              alt="Home"
-              width="40px"
-              height="40px"
-            />
-          </a>
-        </div>
-      )
-    }
-    {
-      !is404Page && (
-        <div class="absolute right-[55px] -mb-[5px]">
-          nothing
-        </div>
-      )
-    }
-    {
-      !is404Page && (
-        <div class="-mt-[3px]">
-          nothing
-        </div>
-      )
-    }
-    {
-      !is404Page && (
-        <div class="absolute right-0">
-          nothing
-        </div>
-      )
-    }
-  </nav>
-  <slot />
+            <a href="/">
+              <img
+                class="favicon absolute left-0 invert -mt-[15px]"
+                src={favicon_avif.src}
+                alt="Home"
+                width="40px"
+                height="40px"
+              />
+            </a>
+          </div>
+
+          <div class="absolute right-[55px] -mb-[5px]">
+            <ThemeIcon />
+          </div>
+    </nav>
+    <slot/>
 </header>
