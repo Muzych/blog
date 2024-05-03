@@ -22,6 +22,9 @@ devDependencies:
   '@unocss/preset-icons':
     specifier: ^0.59.4
     version: 0.59.4
+  '@unocss/preset-mini':
+    specifier: ^0.59.4
+    version: 0.59.4
   '@unocss/preset-uno':
     specifier: ^0.59.4
     version: 0.59.4
