@@ -1,42 +1,37 @@
-// 定义一个初始化函数来设置暗黑模式的初始状态
-function initializeTheme() {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+// Check if the theme is stored in localStorage
+let theme = localStorage.getItem("theme");
+
+// If not, check the user's system preference
+if (!theme) {
+  theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-// 定义一个切换暗黑模式的函数
-function toggleDarkMode() {
-  // 切换HTML的class
-  const isDarkMode = document.documentElement.classList.toggle('dark');
+// Set the theme in localStorage
+localStorage.setItem("theme", theme);
 
-  // 保存当前主题到localStorage
-  if (isDarkMode) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.removeItem('theme');
-  }
+// Add the theme as a class on the html element
+document.documentElement.classList.add(theme);
 
-  // 切换图标的显示
-  const sunIcon = document.querySelector('.sun');
-  const moonIcon = document.querySelector('.moon');
-  if (sunIcon && moonIcon) {
-    sunIcon.classList.toggle('hidden');
-    moonIcon.classList.toggle('hidden');
-  }
-}
+document.addEventListener('astro:page-load', () => {
+  document.getElementById("themeToggle").addEventListener('click', () => {
+    // Toggle the .dark class
+    document.documentElement.classList.toggle("dark");
 
-// 当文档加载完成后执行初始化函数
-document.addEventListener('DOMContentLoaded', () => {
-  // 初始化暗黑模式的状态
-  initializeTheme();
+    // Check if the .dark class is present
+    const isDark = document.documentElement.classList.contains("dark");
 
-  // 获取切换按钮
-  const themeToggleButton = document.getElementById('themeToggle');
+    // Set the theme based on whether the .dark class is present
+    theme = isDark ? "dark" : "light";
 
-  // 为按钮添加点击事件监听器
-  themeToggleButton.addEventListener('click', toggleDarkMode);
+    // Update the theme in localStorage
+    localStorage.setItem("theme", theme);
+  });
+});
+
+document.addEventListener('astro:after-swap', () => {
+  // Get the theme from localStorage
+  theme = localStorage.getItem("theme");
+
+  // Add the theme as a class on the html element
+  document.documentElement.classList.add(theme);
 });
