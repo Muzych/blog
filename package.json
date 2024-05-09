@@ -15,6 +15,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "@iconify-json/line-md": "^1.1.37",
     "@unocss/preset-icons": "^0.59.4",
     "@unocss/preset-mini": "^0.59.4",
