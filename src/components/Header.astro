@@ -1,6 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import ThemeIcon from "./ThemeIcon.astro";
+import  Hamburger  from "./Hamburger.astro";
 
 const favicon_avif = await getImage({
   src: "https://pics.mzych.ink/picstomb%2F2024%2F05%2Fe596365cb7d21826501ea0e8246214e9.jpg",
@@ -29,6 +30,10 @@ const favicon_avif = await getImage({
 
           <div class="absolute right-[55px] -mb-[5px]">
             <ThemeIcon />
+          </div>
+
+          <div class="-mb-[5px]">
+            <Hamburger />
           </div>
     </nav>
     <slot/>

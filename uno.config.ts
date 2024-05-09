@@ -9,6 +9,6 @@ export default defineConfig({
     presetIcons({}),
     presetUno({}),
     presetAttributify({}),
-    presetMini({})
+    presetMini({}),
   ],
 })

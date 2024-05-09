@@ -1,6 +1,14 @@
 <button id="themeToggle" aria-label="themeToggle">
-    <div class="i-line-md:moon-twotone-loop w-2.5rem h-2.5rem block dark:hidden"></div>
-    <div class="i-line-md:sun-rising-twotone-loop w-2.5rem h-2.5rem hidden dark:block"></div>
+    <div
+        id="moonIcon"
+        class="i-line-md:moon-twotone-loop w-2.5rem h-2.5rem block dark:opacity-0 dark:hidden transition-opacity duration-1000"
+    >
+    </div>
+    <div
+        id="sunIcon"
+        class="i-line-md:sun-rising-twotone-loop w-2.5rem h-2.5rem opacity-0 hidden dark:block dark:opacity-100 dark:block transition-opacity duration-1000"
+    >
+    </div>
     <slot />
 </button>
 <script src="../scripts/themetoggle.js"></script>

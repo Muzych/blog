@@ -12,6 +12,18 @@ localStorage.setItem("theme", theme);
 // Add the theme as a class on the html element
 document.documentElement.classList.add(theme);
 
+function toggleIcons() {
+  var moonIcon = document.getElementById("moonIcon");
+  var sunIcon = document.getElementById("sunIcon");
+  if (theme === "dark") {
+    moonIcon.classList.add("opacity-0", "hidden");
+    sunIcon.classList.remove("opacity-0", "hidden");
+  } else {
+    moonIcon.classList.remove("opacity-0", "hidden");
+    sunIcon.classList.add("opacity-0", "hidden");
+  }
+}
+
 document.addEventListener('astro:page-load', () => {
   document.getElementById("themeToggle").addEventListener('click', () => {
     // Toggle the .dark class
@@ -25,6 +37,8 @@ document.addEventListener('astro:page-load', () => {
 
     // Update the theme in localStorage
     localStorage.setItem("theme", theme);
+
+    toggleIcons();
   });
 });
 
