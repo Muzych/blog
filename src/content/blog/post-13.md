@@ -12,7 +12,9 @@ seo:
     alt: Abstract snow
 ---
 
-![Abstract snow](/post-13.jpg)
+<a href="/post-13.jpg" data-fancybox data-caption="limitless-opportunities">
+  <img src="/post-13.jpg" loading="lazy" alt="limitless-opportunities" align="center" />
+</a>
 
 **Note:** This post was created using Chat GPT to demonstrate the features of the _[Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/)_.
 
