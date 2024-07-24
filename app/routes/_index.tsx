@@ -1,41 +1,24 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import { 
+  Button
+} from "~/components/ui/button";
+import { SiteFooter } from "~/components/Footer";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    {
-      name: "description",
-      content: "Welcome to Remix on Cloudflare!",
-    },
-  ];
-};
+import { Link } from "@remix-run/react";
+import { Command } from "lucide-react";
 
-export default function Index() {
+export default function HomePage(){
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix on Cloudflare</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/"
-            rel="noreferrer"
-          >
-            Cloudflare Pages Docs - Remix guide
-          </a>
-        </li>
-      </ul>
+    <div className="w-full min-h-screen flex flex-col">
+      <nav className="flex items-center justify-between p-4 w-full">
+        <Link to="/" className="flex items-center space-x-2">
+          <h1 className="text-xl font-semibold">Muzych's blog</h1>
+        </Link>
+        <Button>BliBlical</Button>
+      </nav>
+      <main className="flex-grow flex items-center justify-center">
+        <h2>Welcome to our site!</h2>
+      </main>
+      <SiteFooter />
     </div>
-  );
+  )
 }
