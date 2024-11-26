@@ -36,8 +36,8 @@ importers:
         specifier: ^0.37.0
         version: 0.37.0(astro@4.16.15(@types/node@22.7.5)(rollup@4.24.0)(typescript@5.6.2))
       astro-icon:
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: ^1.1.4
+        version: 1.1.4
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -959,9 +959,6 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@22.4.2':
-    resolution: {integrity: sha512-nAvM3Ey230/XzxtyDcJ+VjvlzpzoHwLsF7JaDRfoI0ytO0mVheerNmM45CtA0yOILXwXXxOrcUWH3wltX+7PSw==}
-
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
@@ -1073,8 +1070,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
 
-  astro-icon@1.1.1:
-    resolution: {integrity: sha512-HKBesWk2Faw/0+klLX+epQVqdTfSzZz/9+5vxXUjTJaN/HnpDf608gRPgHh7ZtwBPNJMEFoU5GLegxoDcT56OQ==}
+  astro-icon@1.1.4:
+    resolution: {integrity: sha512-sMLkQaevIQLv38WBzb/RDbsmxhg5+X+KcNmpTi9cE6MLurNWU1MPnlO87d9Vwg4HxTenKpDlYp81A3syXFW/gw==}
 
   astro-robots-txt@1.0.0:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
@@ -4271,10 +4268,6 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.4.2':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.8
@@ -4285,7 +4278,7 @@ snapshots:
 
   '@types/tar@6.1.13':
     dependencies:
-      '@types/node': 22.4.2
+      '@types/node': 22.7.5
       minipass: 4.2.8
 
   '@types/unist@2.0.11': {}
@@ -4402,7 +4395,7 @@ snapshots:
       astro: 4.16.15(@types/node@22.7.5)(rollup@4.24.0)(typescript@5.6.2)
       rehype-expressive-code: 0.37.0
 
-  astro-icon@1.1.1:
+  astro-icon@1.1.4:
     dependencies:
       '@iconify/tools': 4.0.5
       '@iconify/types': 2.0.0
