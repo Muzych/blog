@@ -9,20 +9,22 @@ Astro Cactus is a simple opinionated starter built with the Astro framework. Use
 
 ## Table Of Contents
 
-1. [Key Features](#key-features)
-2. [Demo](#demo-💻)
-3. [Quick start](#quick-start)
-4. [Preview](#preview)
-5. [Commands](#commands)
-6. [Configure](#configure)
-7. [Updating](#updating)
-8. [Adding Posts](#adding-posts)
-   - [Frontmatter](#frontmatter)
-   - [Frontmatter Snippet](#frontmatter-snippet)
-9. [Pagefind search](#pagefind-search)
-10. [Analytics](#analytics)
-11. [Deploy](#deploy)
-12. [Acknowledgment](#acknowledgment)
+- [Table Of Contents](#table-of-contents)
+- [Key Features](#key-features)
+- [Demo 💻](#demo-)
+- [Quick start](#quick-start)
+- [Preview](#preview)
+- [Commands](#commands)
+- [Configure](#configure)
+- [Updating](#updating)
+- [Adding posts](#adding-posts)
+  - [Frontmatter](#frontmatter)
+  - [Frontmatter snippet](#frontmatter-snippet)
+- [Pagefind search](#pagefind-search)
+- [Analytics](#analytics)
+- [Deploy](#deploy)
+- [Acknowledgment](#acknowledgment)
+- [License](#license)
 
 ## Key Features
 

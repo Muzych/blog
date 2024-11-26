@@ -8,3 +8,10 @@ coverImage:
   alt: "Astro build wallpaper"
 tags: ["test", "image"]
 ---
+
+<Layout>
+  <PostHeader title="Example Cover Image" description="This post is an example of how to add a cover/hero image" coverImage={Astro.props.coverImage} />
+  <PostBody>
+    <p>This is a post with a cover image</p>
+  </PostBody>
+</Layout>
