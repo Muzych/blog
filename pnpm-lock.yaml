@@ -24,8 +24,8 @@ importers:
         specifier: ^5.0.8
         version: 5.1.1
       '@fontsource/lora':
-        specifier: ^5.0.8
-        version: 5.1.0
+        specifier: ^5.1.1
+        version: 5.1.1
       '@fontsource/source-serif-pro':
         specifier: ^5.0.8
         version: 5.1.0
@@ -525,8 +525,8 @@ packages:
   '@fontsource/jetbrains-mono@5.1.1':
     resolution: {integrity: sha512-5rwvmdQQpXev4LlBX1P+7h2dguu6iwW/9Npjde4+DEq+HgpVJI/7QY8DI1NVVFdvLtXZNP+vO2L/5BQED6FUhA==}
 
-  '@fontsource/lora@5.1.0':
-    resolution: {integrity: sha512-kHhtKc/ETrNN0X+TsfSAqeE/WQcazkSa97Sxzkg/Uo2rZ+O3kCts595Cmu116O5gw4z0Bc37voD67rEA6iRv/w==}
+  '@fontsource/lora@5.1.1':
+    resolution: {integrity: sha512-bUW6bZmbbJG4jjHPaamRhLNmerjck/oXMh0NcdgB0WC1wtJLpBphi51NVh2EwE6UimliUA4o8UPYD/lOtBX36Q==}
 
   '@fontsource/source-serif-pro@5.1.0':
     resolution: {integrity: sha512-t8bZNbn5qFm0dOVBijRS4AuLFUvPk/wVy6U+hYc7ZfiA+0AfKvO+TRfFdL7ZYPNdZPtvHDQXPmrfge1xFEK2kQ==}
@@ -3864,7 +3864,7 @@ snapshots:
 
   '@fontsource/jetbrains-mono@5.1.1': {}
 
-  '@fontsource/lora@5.1.0': {}
+  '@fontsource/lora@5.1.1': {}
 
   '@fontsource/source-serif-pro@5.1.0': {}
 
