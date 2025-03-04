@@ -4,44 +4,35 @@ import aboutImg from "@/assets/about-astro.png";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
-	title: "About",
+	description: "关于我的个人介绍",
+	title: "关于",
 };
 ---
 
 <PageLayout meta={meta}>
 	<div class="space-y-6">
-		<h1 class="title">About</h1>
-		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
-		</p>
-		<div class="flex justify-center">
-			<Image
-				alt="A cartoon cactus looking at the 'Astro.build' logo"
-				fetchpriority="high"
-				loading="eager"
-				src={aboutImg}
-			/>
+		<h1 class="title">关于我</h1>
+		<div
+			class="prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:text-accent-2"
+		>
+			<p>我是 Muzych，欢迎来到我的个人博客。</p>
+
+			<p>
+				这个网站使用了莫兰迪色系的配色方案，旨在创造一个平静、优雅的阅读环境。莫兰迪色系以其低饱和度、柔和的灰调色彩而闻名，能够营造出宁静而不失品味的视觉体验。
+			</p>
+
+			<h2>我的兴趣</h2>
+			<ul>
+				<li>编程与技术探索</li>
+				<li>阅读与写作</li>
+				<li>音乐欣赏</li>
+			</ul>
+
+			<blockquote>
+				<p>却道天凉好个秋</p>
+			</blockquote>
+
+			<p>感谢您访问我的网站，希望您能在这里找到有价值的内容。</p>
 		</div>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-inside list-disc">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
-		</ul>
-		<p>
-			Clone or fork my <a
-				aria-label="github repository"
-				class="cactus-link inline-block"
-				href="https://github.com/chrismwilliams/astro-cactus"
-				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
-		</p>
 	</div>
 </PageLayout>

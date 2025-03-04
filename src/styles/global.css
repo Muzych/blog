@@ -14,7 +14,7 @@
 	:root,
 	:root[data-theme="light"] {
 		color-scheme: light;
-		/* 莫兰迪浅色主题 */
+		/* 莫兰迪浅色主题 - 优化配色 */
 		--theme-bg: 35deg 16% 95%;
 		/* 温暖的米灰色背景 */
 		--theme-link: 199deg 25% 51%;
@@ -31,7 +31,7 @@
 
 	:root[data-theme="dark"] {
 		color-scheme: dark;
-		/* 更深沉的莫兰迪深色主题 */
+		/* 更深沉的莫兰迪深色主题 - 优化配色 */
 		--theme-bg: 236deg 15% 15%;
 		/* 更深的灰蓝色背景 */
 		--theme-link: 199deg 20% 65%;
@@ -40,8 +40,8 @@
 		/* 柔和的灰白色文字 */
 		--theme-accent: 348deg 22% 68%;
 		/* 暗调莫兰迪粉强调 */
-		--theme-accent-2: 35deg 12% 80%;
-		/* 柔和的灰白色次强调 */
+		--theme-accent-2: 199deg 20% 60%;
+		/* 调整次强调色为更柔和的青灰色 */
 		--theme-quote: 348deg 22% 68%;
 		/* 引用颜色同强调色 */
 	}
