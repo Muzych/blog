@@ -1,0 +1,25 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+import StreamCard from "@/components/StreamCard.astro";
+import { getAllStreamItems, sortStreamItemsByDate } from "@/data/stream";
+
+// 获取所有流项目
+const allStreamItems = await getAllStreamItems();
+const streamItems = sortStreamItemsByDate(allStreamItems);
+
+// 调试信息
+console.log(`总项目数: ${streamItems.length}`);
+---
+
+<PageLayout meta={{ title: "Stream | 思绪流" }}>
+	<section>
+		<h1 class="title mb-6">思绪流</h1>
+		<p class="mb-8">记录日常想法、发现和灵感的地方</p>
+	</section>
+
+	<section class="mt-8">
+		<div class="flex flex-col gap-6">
+			{streamItems.map((item) => <StreamCard item={item} />)}
+		</div>
+	</section>
+</PageLayout>

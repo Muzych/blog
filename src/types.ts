@@ -84,4 +84,18 @@ export interface Summary {
 	value: string;
 }
 
+export interface StreamItem {
+	id: number;
+	type: "thought" | "link" | "photo" | "code" | "quote";
+	content: string;
+	date: Date;
+	url?: string;
+	title?: string;
+	imageUrl?: string;
+	code?: string;
+	language?: string;
+	source?: string;
+}
+
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";
+

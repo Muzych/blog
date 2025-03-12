@@ -77,3 +77,28 @@
 		letter-spacing: -0.02em;
 	}
 }
+
+.stream-card {
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+	max-width: 100%;
+	width: 100%;
+}
+
+.stream-card:hover {
+	transform: translateY(-2px);
+}
+
+/* 确保标题样式与博客其他页面一致 */
+.title {
+	@apply text-2xl font-semibold text-textColor;
+}
+
+/* 可选：为较宽屏幕提供最大宽度限制 */
+@media (min-width: 768px) {
+	.stream-card {
+		max-width: 650px;
+		margin: 0 auto;
+	}
+}

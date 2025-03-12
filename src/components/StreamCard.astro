@@ -1,0 +1,159 @@
+---
+import { Icon } from "astro-icon/components";
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { StreamItem } from "@/types";
+import { Code } from "astro:components";
+
+interface StreamCardProps {
+	item: StreamItem;
+}
+const { item } = Astro.props as StreamCardProps;
+
+// 提取代码和语言
+let codeContent = "";
+let codeLang = "javascript"; // 默认使用javascript
+
+if (item.type === "code" && item.content) {
+	// 尝试从内容中提取代码块
+	const codeMatch = item.content.match(/```(\w+)?\s*([\s\S]*?)\s*```/);
+
+	if (codeMatch) {
+		// 如果找到代码块，提取语言和代码
+		if (codeMatch[1]) {
+			// 映射常见的语言简写
+			const langMap: Record<string, string> = {
+				js: "javascript",
+				ts: "typescript",
+				md: "markdown",
+				py: "python",
+				sh: "bash",
+			};
+
+			codeLang = langMap[codeMatch[1]] || codeMatch[1];
+		}
+		codeContent = codeMatch[2] || "";
+	} else if (item.code) {
+		// 如果没有找到代码块但有code字段，使用code字段
+		codeContent = item.code;
+		if (item.language) {
+			const langMap: Record<string, string> = {
+				js: "javascript",
+				ts: "typescript",
+				md: "markdown",
+				py: "python",
+				sh: "bash",
+			};
+
+			codeLang = langMap[item.language] || item.language;
+		}
+	}
+}
+
+// 定义明暗模式下的代码块主题
+const theme = "github-dark"; // 暗色模式使用github-dark主题
+const lightTheme = "github-light"; // 亮色模式使用github-light主题
+---
+
+<div
+	class="stream-card rounded-lg border border-gray-200 bg-bgColor p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700"
+>
+	<div class="mb-3 flex items-center justify-between">
+		<div class="flex items-center gap-2">
+			{item.type === "thought" && <Icon name="mdi:thought-bubble" class="h-5 w-5 text-blue-500" />}
+			{item.type === "link" && <Icon name="mdi:link-variant" class="h-5 w-5 text-green-500" />}
+			{item.type === "photo" && <Icon name="mdi:image" class="h-5 w-5 text-purple-500" />}
+			{item.type === "code" && <Icon name="mdi:code-tags" class="h-5 w-5 text-amber-500" />}
+			{item.type === "quote" && <Icon name="mdi:format-quote-close" class="h-5 w-5 text-red-500" />}
+			<span class="text-xs font-medium capitalize text-textColor opacity-75">{item.type}</span>
+		</div>
+		<FormattedDate date={item.date} class="text-xs text-textColor opacity-75" />
+	</div>
+
+	{/* 内容区域 */}
+	<div class="mb-4">
+		{item.type === "thought" && <p class="text-sm">{item.content}</p>}
+
+		{
+			item.type === "link" && (
+				<div>
+					<a
+						href={item.url}
+						class="cactus-link mb-1 block font-medium"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{item.title}
+					</a>
+					<p class="text-sm text-textColor opacity-90">{item.content}</p>
+				</div>
+			)
+		}
+
+		{
+			item.type === "photo" && (
+				<div>
+					<img
+						src={item.imageUrl}
+						alt={item.content}
+						class="mb-2 max-h-80 w-full rounded-md object-cover"
+					/>
+					<p class="text-sm">{item.content}</p>
+				</div>
+			)
+		}
+
+		{
+			item.type === "code" && (
+				<div>
+					{/* 显示代码块前的描述文本 */}
+					<p class="mb-2 text-sm">{item.content?.split("```")[0]?.trim()}</p>
+					{/* 显示代码块 */}
+					<div class="code-block dark:hidden">
+						<Code code={codeContent} lang={codeLang as any} theme={lightTheme} />
+					</div>
+					<div class="code-block hidden dark:block">
+						<Code code={codeContent} lang={codeLang as any} theme={theme} />
+					</div>
+				</div>
+			)
+		}
+
+		{
+			item.type === "quote" && (
+				<div>
+					<blockquote class="border-l-2 border-gray-300 pl-3 italic dark:border-gray-600">
+						"{item.content}"
+					</blockquote>
+					<p class="mt-1 text-right text-xs">— {item.source}</p>
+				</div>
+			)
+		}
+	</div>
+</div>
+
+<style>
+	/* 代码块样式 */
+	.code-block :global(pre) {
+		border-radius: 0.375rem;
+		margin: 0;
+		padding: 1rem;
+	}
+
+	/* 确保代码内容与边框有足够间距 */
+	.code-block :global(code) {
+		padding: 0;
+		font-family:
+			ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+			monospace;
+	}
+
+	/* 确保代码块在暗色模式下有正确的边框 */
+	.dark .code-block :global(pre) {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	/* 确保代码块在亮色模式下有正确的边框 */
+	:not(.dark) .code-block :global(pre) {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+	}
+</style>
