@@ -1,8 +1,10 @@
----
-title: '2023-2024年终总结'
-description: '给过去的一年半载打个总结。通过kepano的40 questions模板对2023到2024年的个人生活做一个简单的概括。'
-publishDate: '31 Dec 2024'
----
+Title: My Second Blog Post
+Date: 2025-06-22 10:00
+Category: Blog
+Tags: pelican, python
+Slug: my-second-post
+Author: Your Name
+
 借着kepano的[40-questions](https://github.com/kepano/40-questions/blob/master/translations/zh-hans/year.md)，我来写一份迟到的年终总结（2023-2024）。
 
 ### 1. 你今年做了哪些之前从未做过的事
