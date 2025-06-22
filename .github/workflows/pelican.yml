@@ -1,0 +1,61 @@
+name: Deploy Pelican to GitHub Pages
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      # 安装 uv
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.4.29"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"  # 如果没有 uv.lock，会跳过缓存
+
+      # 设置 Python 环境
+      - name: Set up Python
+        run: uv python install 3.13
+
+      # 安装依赖（支持 pyproject.toml 或 requirements.txt）
+      - name: Install Dependencies
+        run: |
+          if [ -f "uv.lock" ]; then
+            uv sync
+          else
+            uv pip install -r requirements.txt
+          fi
+
+      # 生成 Pelican 静态文件
+      - name: Build Pelican Site
+        run: uv run pelican content -o output -s publishconf.py
+
+      # 添加 .nojekyll 文件
+      - name: Add .nojekyll
+        run: touch output/.nojekyll
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: output
+          branch: gh-pages
