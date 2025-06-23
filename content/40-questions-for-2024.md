@@ -1,7 +1,7 @@
 Title: My Second Blog Post
 Date: 2025-06-22 10:00
 Category: Blog
-Tags: pelican, python
+Tags: thoughts, python
 Slug: my-second-post
 Author: Your Name
 
