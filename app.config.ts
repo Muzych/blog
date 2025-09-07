@@ -1,4 +1,7 @@
 import { defineConfig } from "@solidjs/start/config";
+import UnoCSS from 'unocss/vite';
+
+
 /* @ts-ignore */
 import pkg from "@vinxi/plugin-mdx";
 
@@ -15,7 +18,8 @@ export default defineConfig({
         jsx: true,
         jsxImportSource: "solid-js",
         providerImportSource: "solid-mdx"
-      })
+      }),
+      UnoCSS()
     ]
   }
 });
