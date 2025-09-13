@@ -5,12 +5,14 @@ import presetIcons from '@unocss/preset-icons';
 
 export default defineConfig({
   // ...UnoCSS options
-  
+  theme:{
+    dark:'class'
+  },
   shortcuts:[
     {logo:'i-logos-solidjs-icon w-6em h-6em transform transition-800 hover:rotate-360'}
   ],
   presets:[
-    presetWind3({'dark': 'class'}),
+    presetWind3(),
     presetAttributify(),
     presetIcons({
       cdn: 'https://esm.sh/',

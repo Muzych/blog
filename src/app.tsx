@@ -9,11 +9,11 @@ export default function App() {
   return (
     <Router
       root={props => (
-        <main>
-          <div class="flex items-center justify-between mb-4 w-full">
+        <main class="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+          <div class="flex items-center justify-between mb-4 w-full p-4">
             <div class="flex items-center gap-3">
-              <a href="/">Index</a>
-              <a href="/about">About</a>
+              <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Index</a>
+              <a href="/about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
             </div>
             <ThemeToggle />
           </div>
