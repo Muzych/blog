@@ -1,39 +1,101 @@
 body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafaf9; /* 莫兰迪米白色 */
+}
+
+.dark body {
+  background-color: #1e293b; /* 莫兰迪深蓝灰 */
 }
 
 a {
-  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 main {
   text-align: center;
-  padding: 1em;
-  margin: 0 auto;
 }
 
 h1 {
-  color: #335d92;
+  color: #78716c; /* 莫兰迪温暖灰棕 */
   text-transform: uppercase;
   font-size: 4rem;
   font-weight: 100;
   line-height: 1.1;
-  margin: 4rem auto;
-  max-width: 14rem;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
+.dark h1 {
+  color: #e7e5e4; /* 暗色模式下的温暖米色 */
 }
 
 p {
-  max-width: 14rem;
-  margin: 2rem auto;
-  line-height: 1.35;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  line-height: 1.7;
+  text-align: left;
+  color: #57534e; /* 莫兰迪深灰棕，易读 */
 }
 
-@media (min-width: 480px) {
-  h1 {
-    max-width: none;
-  }
+.dark p {
+  color: #d6d3d1; /* 暗色模式下的温暖浅灰 */
+}
 
-  p {
-    max-width: none;
+/* MDX 内容样式优化 - 莫兰迪风格 */
+main h2 {
+  color: #6b7280; /* 莫兰迪中性灰 */
+  font-size: 2rem;
+  margin: 1.5rem auto 1rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.dark main h2 {
+  color: #d1d5db; /* 暗色模式下的柔和灰 */
+}
+
+main div {
+  text-align: center;
+}
+
+/* 引用块样式 - 莫兰迪风格 */
+blockquote {
+  border-left: 4px solid #a8a29e; /* 莫兰迪暖灰色边框 */
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #6b7280;
+  background-color: #f7f6f4; /* 极浅的莫兰迪米色 */
+  padding: 1rem;
+  border-radius: 0.375rem;
+}
+
+.dark blockquote {
+  border-left-color: #6b7280;
+  color: #d1d5db;
+  background-color: #374151;
+}
+
+/* 代码块样式 - 莫兰迪风格 */
+code {
+  background-color: #f5f5f4; /* 莫兰迪浅石色 */
+  color: #78716c;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.dark code {
+  background-color: #374151;
+  color: #d6d3d1;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

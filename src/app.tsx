@@ -9,16 +9,23 @@ export default function App() {
   return (
     <Router
       root={props => (
-        <main class="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
-          <div class="flex items-center justify-between mb-4 w-full p-4">
-            <div class="flex items-center gap-3">
-              <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Index</a>
-              <a href="/about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <div class="min-h-screen bg-stone-50 text-stone-800 dark:bg-slate-800 dark:text-stone-200 transition-colors duration-300">
+          {/* 导航栏 - 莫兰迪风格 */}
+          <header class="w-full bg-stone-100/80 dark:bg-slate-700/80 backdrop-blur-sm border-b border-stone-200/60 dark:border-slate-600/60">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+              <nav class="flex items-center gap-6">
+                <a href="/" class="hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium">Index</a>
+                <a href="/about" class="hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium">About</a>
+              </nav>
+              <ThemeToggle />
             </div>
-            <ThemeToggle />
-          </div>
-          <Suspense>{props.children}</Suspense>
-        </main>
+          </header>
+          
+          {/* 主内容区域 - 与导航栏完美对齐 */}
+          <main class="max-w-5xl mx-auto px-4 py-8">
+            <Suspense>{props.children}</Suspense>
+          </main>
+        </div>
       )}
     >
       <FileRoutes />

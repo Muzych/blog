@@ -18,12 +18,12 @@ export default function ThemeToggle() {
 
     return (
         <button
-      type="button"
-      aria-label="切换主题"
-      onClick={toggle}
-      class="inline-flex items-center  justify-center rounded-md p-2 text-current hover:bg-gray-200 dark:hover:bg-gray-200 transition-colors"
-    >
-      <span class={isDark() ? "i-carbon-sun w-5 h-5" : "i-carbon-moon w-5 h-5"} />
-    </button>
-    )
+          type="button"
+          aria-label="切换主题"
+          onClick={toggle}
+          class="inline-flex items-center justify-center rounded-md p-2 text-stone-600 hover:bg-stone-200/80 dark:text-stone-300 dark:hover:bg-slate-600/80 transition-all duration-200"
+        >
+          <span class={isDark() ? "i-carbon:moon w-5 h-5" : "i-carbon:sun w-5 h-5"} />
+        </button>
+      )
 }
