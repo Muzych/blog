@@ -2,11 +2,30 @@ body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fafaf9; /* 莫兰迪米白色 */
+  /* 统一设置背景色和文字颜色 */
+  background-color: #fffefc;
+  color: #44403c;
+  /* 统一过渡效果 */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 让主题切换时主要元素的背景 / 文字 / 边框有平滑过渡 */
+main,
+aside,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+blockquote,
+code {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .dark body {
-  background-color: #1e293b; /* 莫兰迪深蓝灰 */
+  background-color: #0a0a0a;
+  color: #d6d3d1;
 }
 
 a {
@@ -14,83 +33,104 @@ a {
   color: inherit;
 }
 
+/* 移除原本的全局 text-align: center，改为默认左对齐 */
 main {
-  text-align: center;
+  /* text-align: center;  <-- 删除这行 */
+  text-align: left;
 }
 
 h1 {
-  color: #78716c; /* 莫兰迪温暖灰棕 */
+  color: #1c1917;
   text-transform: uppercase;
-  font-size: 4rem;
-  font-weight: 100;
+  font-size: 2.5rem; /* 稍微调小一点，适配双栏 */
+  font-weight: 700;  /* 加粗 */
   line-height: 1.1;
-  margin: 2rem auto;
-  max-width: 100%;
+  margin: 1rem 0 2rem 0;
+  letter-spacing: -0.02em;
 }
 
 .dark h1 {
-  color: #e7e5e4; /* 暗色模式下的温暖米色 */
+  color: #f5f5f4;
 }
 
 p {
-  max-width: 100%;
-  margin: 1.5rem auto;
-  line-height: 1.7;
-  text-align: left;
-  color: #57534e; /* 莫兰迪深灰棕，易读 */
+  max-width: 65ch; /* 限制行宽，提升阅读体验 */
+  margin: 1.5rem 0;
+  line-height: 1.8;
+  color: #44403c;
+  font-weight: 400;
 }
 
 .dark p {
-  color: #d6d3d1; /* 暗色模式下的温暖浅灰 */
+  color: #d6d3d1;
 }
 
-/* MDX 内容样式优化 - 莫兰迪风格 */
+/* MDX 内容样式优化 */
 main h2 {
-  color: #6b7280; /* 莫兰迪中性灰 */
-  font-size: 2rem;
-  margin: 1.5rem auto 1rem;
-  text-align: center;
-  font-weight: 300;
+  color: #44403c;
+  font-size: 1.8rem;
+  margin: 3rem 0 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: left; /* 确保左对齐 */
+}
+
+main h3 {
+  color: #57534e;
+  font-size: 1.4rem;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
 }
 
 .dark main h2 {
-  color: #d1d5db; /* 暗色模式下的柔和灰 */
+  color: #e7e5e4;
+}
+.dark main h3 {
+  color: #d6d3d1;
 }
 
-main div {
-  text-align: center;
-}
-
-/* 引用块样式 - 莫兰迪风格 */
-blockquote {
-  border-left: 4px solid #a8a29e; /* 莫兰迪暖灰色边框 */
-  padding-left: 1rem;
+/* 列表样式 */
+ul, ol {
   margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  color: #44403c;
+  line-height: 1.8;
+}
+.dark ul, .dark ol {
+  color: #d6d3d1;
+}
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* 引用块样式 */
+blockquote {
+  border-left: 4px solid #e7e5e4;
+  margin: 2rem 0;
   font-style: italic;
-  color: #6b7280;
-  background-color: #f7f6f4; /* 极浅的莫兰迪米色 */
-  padding: 1rem;
-  border-radius: 0.375rem;
+  color: #57534e;
+  background-color: transparent;
+  padding: 0.5rem 0 0.5rem 1.5rem;
 }
 
 .dark blockquote {
-  border-left-color: #6b7280;
-  color: #d1d5db;
-  background-color: #374151;
+  border-left-color: #44403c;
+  color: #a8a29e;
 }
 
-/* 代码块样式 - 莫兰迪风格 */
+/* 代码块样式 */
 code {
-  background-color: #f5f5f4; /* 莫兰迪浅石色 */
-  color: #78716c;
-  padding: 0.125rem 0.25rem;
+  background-color: #f5f5f4;
+  color: #1c1917;
+  padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   font-size: 0.875em;
+  font-family: monospace;
 }
 
 .dark code {
-  background-color: #374151;
-  color: #d6d3d1;
+  background-color: #292524;
+  color: #e7e5e4;
 }
 
 @media (min-width: 768px) {

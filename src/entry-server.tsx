@@ -12,7 +12,7 @@ export default createHandler(() => (
           <script>{`try{var t=localStorage.getItem('theme');var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var d=t?t==='dark':m;document.documentElement.classList[d?'add':'remove']('dark');}catch(e){}`}</script>
           {assets}
         </head>
-        <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <body>
           <div id="app">{children}</div>
           {scripts}
         </body>
