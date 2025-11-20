@@ -1,6 +1,7 @@
 import Status from "~/components/Status";
+import Reaction from "~/components/Reaction";
 
-# 欢迎来到我的数字花园 🌱
+# 欢迎来到我的数字花园 ��
 
 <div class="text-xl text-stone-500 dark:text-stone-400 italic font-serif my-8 pl-4 border-l-2 border-stone-200 dark:border-stone-700">
   "这里不是完美的展示台，而是思想的堆肥场。"
@@ -36,6 +37,9 @@ import Status from "~/components/Status";
 
 ---
 
-<div class="text-sm text-stone-400 mt-20">
+<div class="text-sm text-stone-400 mt-20 text-center">
   最后更新于：{new Date().toLocaleDateString()}
 </div>
+
+{/* 添加 Reaction 组件，id 设为 "home" */}
+<Reaction id="home" />
